@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -52,25 +52,26 @@
                                 <hr>
                                 <h5 class="card-title brand-font">Deskripsi tugas</h5>
                                 <div class="form-group">
-                                    <input type="text" required class="form-control" id="judulTugas" aria-describedby="emailHelp">
+                                    <input type="text" required class="form-control" id="descTugas" aria-describedby="emailHelp">
                                     <small id="" class="form-text text-left text-light">Buat deskripsi semenarik mungkin</small>
                                 </div>
                                 <hr>
                                 <h5 class="card-title brand-font">Deadline tugas</h5>
                                 <div class="form-group">
-                                    <input type="date" required class="form-control" id="judulTugas" aria-describedby="emailHelp">
+                                    <input type="date" required class="form-control" id="deadlineTugas" aria-describedby="emailHelp">
                                     <small id="" class="form-text text-left text-light">Set deadline !!</small>
                                 </div>
                                 <hr>
                                 <h5 class="card-title brand-font">Poin exp tugas</h5>
                                 <div class="form-group">
-                                    <input type="number" required class="form-control" id="judulTugas" aria-describedby="emailHelp">
+                                    <input type="number" required class="form-control" id="expTugas" aria-describedby="emailHelp">
                                     <small id="" class="form-text text-left text-light">Semakin sulit semakin besar exp</small>
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
-                                <a href="#" class="btn btn-primary">Submit !!</a>
+                                <button type="submit" class="btn btn-primary" onclick="submitData()">Submit !!</button>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -90,11 +91,19 @@
 
     -->
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    
+      <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+
+
      <script src="../assets/js/main.js"></script>
 </body>
 

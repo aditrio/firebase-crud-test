@@ -1,6 +1,7 @@
 
 
-  // console.log("test");
+  
+  var item;
 
   $(document).ready(function () {
 
@@ -23,27 +24,69 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
 
-      var data = {
-        'username' : 'aditrio',
-        'email' : '30noadi@gmail.com'
-      }
+      var data = firebase.database().ref('/');
 
-      $.ajax({
-        url: 'https://uas-sbd-default-rtdb.firebaseio.com/.json',
-        type: 'GET',
-        // data: JSON.stringify(data),
-      })
-      .done(function() {
-        console.log("success");
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function(result) {
-        console.log(result);
+      data.on('value', (snapshot) => {
+
+        item = snapshot.val();
+        console.log(item);
+
       });
       
 
+
+
   });
 
+
+    function getId()
+    {
+        if(item['tugas'] != null){
+
+          return item['tugas'].length + 1;
+
+        }
+        return 0;
+    }
+
   
+    function submitData(){
+
+        var judul = $('#judulTugas').val();
+        var desc = $('#descTugas').val();
+        var date = $('#deadlineTugas').val();
+        var exp = $('#expTugas').val();
+        var id = firebase.database().ref('tugas/').push().key;
+
+
+
+        firebase.database().ref('tugas/' + id).set({
+
+          id : id,
+          judul : judul,
+          desc : desc,
+          date : date,
+          exp : exp,
+          status : "unsubmitted"
+
+        });
+
+        console.log("done");
+
+    }
+
+    function updateData(){
+
+      firebase.database().ref('users/'+1).update({
+
+        name : "gugukkk",
+        email: "gugukkawaii@gmail.com"
+
+      });
+    }
+
+    function deleteData(){
+
+      firebase.database().ref('users/'+2).remove();
+    }
+          
