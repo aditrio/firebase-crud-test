@@ -37,13 +37,7 @@
 
         $.each(item['tugas'],function(index) {
             loopData(item['tugas'][index]); 
-            if (item['tugas'][index]['status'] == "submitted") {
-
-                 $('.btn-submit').each(function() {
-                    $(this).attr('disabled', 'true');
-                 });
-
-            }
+            
         });
 
       });
@@ -107,7 +101,7 @@
                             +'</div>'
                             
                             +'<div class="col-lg ml-5">'
-                                +'<button type="submit" onclick="_submitTugas(\''+data['id']+'\')" class="btn btn-sm btn-dark brand-font btn-submit" >Submit !!!</button>'
+                                +'<button type="submit" data-status="'+data['status']+'" onclick="_submitTugas(\''+data['id']+'\')" class="btn btn-sm btn-dark brand-font btn-submit" >Submit !!!</button>'
                             +"</div>"
                        + "</div>"
                    +" </div>"
