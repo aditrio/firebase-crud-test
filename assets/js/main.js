@@ -23,6 +23,26 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
 
+      var data = {
+        'username' : 'aditrio',
+        'email' : '30noadi@gmail.com'
+      }
+
+      $.ajax({
+        url: 'https://uas-sbd-default-rtdb.firebaseio.com/.json',
+        type: 'GET',
+        // data: JSON.stringify(data),
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function(result) {
+        console.log(result);
+      });
+      
 
   });
 
